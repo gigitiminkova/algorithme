@@ -1,0 +1,42 @@
+// ------------------------------------------------------
+// Algorithme : AnalysePhrase
+// Objectif : Lire une phrase terminée par un point ('.')
+//             et déterminer :
+//             - sa longueur (en caractères)
+//             - son nombre de mots
+//             - son nombre de voyelles
+// ------------------------------------------------------
+ALGORITHM algorithm_variables_phrase
+VAR
+    caractere : caractère
+    nbCar, nbMot, nbVoy : entier
+    voyelles : chaîne ← "aeiouAEIOU"
+BEGIN
+    nbCar ← 0
+    nbMot ← 1
+    nbVoy ← 0
+
+    Ecrire("Entrez une phrase terminée par un point : ")
+    Lire(caractere)
+
+    TANT QUE caractere ≠ '.' FAIRE
+        nbCar ← nbCar + 1
+
+        SI caractere ∈ voyelles ALORS
+            nbVoy ← nbVoy + 1
+        FINSI
+
+        SI caractere = ' ' ALORS
+            nbMot ← nbMot + 1
+        FINSI
+
+        Lire(caractere)
+    FIN_TANT_QUE
+
+    nbCar ← nbCar + 1   // on compte aussi le point
+
+    Ecrire("Longueur de la phrase : ", nbCar)
+    Ecrire("Nombre de mots : ", nbMot)
+    Ecrire("Nombre de voyelles : ", nbVoy)
+END
+
